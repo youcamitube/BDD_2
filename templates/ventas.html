@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Ventas - Sistema Inventario{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-between align-center mb-4">
+    <h2>Registro de Ventas</h2>
+</div>
+
+<div class="card">
+    <h3 class="card-title">Registrar Nueva Venta</h3>
+    <form action="/guardar_venta" method="POST">
+        <div class="d-flex gap-4">
+            <div class="form-group" style="flex: 2;">
+                <label class="form-label">Producto:</label>
+                <select name="id_producto" class="form-control" required style="appearance: none;">
+                    <option value="" disabled selected>Seleccione un producto</option>
+                    <option value="1">MacBook Pro M2</option>
+                    <option value="2">Teclado Mecánico Keychron</option>
+                </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label class="form-label">Cantidad:</label>
+                <input type="number" name="cantidad" class="form-control" placeholder="1" required min="1">
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label class="form-label">Fecha:</label>
+                <input type="date" name="fecha" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Confirmar Venta</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3 class="card-title">Historial de Ventas</h3>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Venta</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de ejemplo -->
+                <tr>
+                    <td>V-001</td>
+                    <td>MacBook Pro M2</td>
+                    <td><span class="badge">1</span></td>
+                    <td>2026-06-06</td>
+                    <td style="color: var(--success); font-weight: 600;">$1,299.00</td>
+                </tr>
+                <tr>
+                    <td>V-002</td>
+                    <td>Teclado Mecánico Keychron</td>
+                    <td><span class="badge">2</span></td>
+                    <td>2026-06-06</td>
+                    <td style="color: var(--success); font-weight: 600;">$170.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

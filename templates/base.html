@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema Inventario{% endblock %}</title>
+    <!-- Vinculando el CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="{{ url_for('inicio') }}">Sistema Inventario</a>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="{{ url_for('inicio') }}">Inicio</a></li>
+            <li class="nav-item"><a href="{{ url_for('productos') }}">Productos</a></li>
+            <li class="nav-item"><a href="{{ url_for('ventas') }}">Ventas</a></li>
+            <li class="nav-item"><a href="{{ url_for('reporte') }}">Reportes</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor Principal para el contenido de otras páginas -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

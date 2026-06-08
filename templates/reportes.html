@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Reportes - Sistema Inventario{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-between align-center mb-4">
+    <h2>Reportes Estadísticos</h2>
+</div>
+
+<div class="card">
+    <h3 class="card-title">Rendimiento Mensual</h3>
+    <div style="height: 300px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+        [ Aquí se integrará el gráfico de barras de ventas con Chart.js ]
+    </div>
+</div>
+
+<div class="d-flex gap-4">
+    <div class="card" style="flex: 1;">
+        <h3 class="card-title">Productos más vendidos</h3>
+        <ul style="list-style: none; color: var(--text-secondary);">
+            <li class="d-flex justify-between" style="padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <span>1. MacBook Pro M2</span>
+                <strong style="color: var(--text-primary);">45 uds.</strong>
+            </li>
+            <li class="d-flex justify-between" style="padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <span>2. Monitor Dell 27"</span>
+                <strong style="color: var(--text-primary);">32 uds.</strong>
+            </li>
+            <li class="d-flex justify-between" style="padding: 1rem 0;">
+                <span>3. Teclado Mecánico Keychron</span>
+                <strong style="color: var(--text-primary);">28 uds.</strong>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="card" style="flex: 1;">
+        <h3 class="card-title">Alertas de Stock</h3>
+        <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; margin-bottom: 1rem;">
+            <strong style="color: var(--danger); display: block; margin-bottom: 0.5rem;">Stock Bajo Crítico</strong>
+            <span style="color: var(--text-secondary);">Mouse Logitech MX Master 3 - <span style="color: var(--text-primary); font-weight: bold;">Quedan 2</span></span>
+        </div>
+        <div style="padding: 1rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px;">
+            <strong style="color: #f59e0b; display: block; margin-bottom: 0.5rem;">Precaución</strong>
+            <span style="color: var(--text-secondary);">Disco Duro 1TB Seagate - <span style="color: var(--text-primary); font-weight: bold;">Quedan 5</span></span>
+        </div>
+    </div>
+</div>
+{% endblock %}

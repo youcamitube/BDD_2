@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos - Sistema Inventario{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-between align-center mb-4">
+    <h2>Catálogo de Productos</h2>
+</div>
+
+<div class="card">
+    <h3 class="card-title">Añadir Nuevo Producto</h3>
+    <!-- Formulario para insertar productos -->
+    <form action="/guardar" method="POST">
+        <div class="d-flex gap-4">
+            <div class="form-group" style="flex: 2;">
+                <label class="form-label">Nombre del Producto:</label>
+                <input type="text" name="nombre" class="form-control" placeholder="Ej. Laptop HP" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label class="form-label">Precio ($):</label>
+                <input type="number" step="0.01" name="precio" class="form-control" placeholder="0.00" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label class="form-label">Stock Inicial:</label>
+                <input type="number" name="stock" class="form-control" placeholder="0" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Guardar Producto</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3 class="card-title">Listado de Productos</h3>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Producto</th>
+                    <th>Precio</th>
+                    <th>Stock Disponible</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de ejemplo hasta que se conecte la DB -->
+                {% if productos %}
+                    {% for producto in productos %}
+                    <tr>
+                        <td>{{ producto[0] }}</td>
+                        <td>{{ producto[1] }}</td>
+                        <td>${{ producto[2] }}</td>
+                        <td><span class="badge">{{ producto[3] }}</span></td>
+                        <td>
+                            <button class="btn btn-danger" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Eliminar</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>1</td>
+                        <td>MacBook Pro M2</td>
+                        <td>$1,299.00</td>
+                        <td><span class="badge">15</span></td>
+                        <td>
+                            <button class="btn btn-danger" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Teclado Mecánico Keychron</td>
+                        <td>$85.00</td>
+                        <td><span class="badge">40</span></td>
+                        <td>
+                            <button class="btn btn-danger" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Eliminar</button>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

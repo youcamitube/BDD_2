@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Sistema Inventario{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="hero-title">Gestión Inteligente de Inventario y Ventas</h1>
+    <p class="hero-subtitle">
+        Controla tus productos, registra ventas y genera reportes de manera eficiente 
+        con nuestro sistema moderno, diseñado para maximizar la productividad de tu negocio.
+    </p>
+    <div class="d-flex justify-center gap-4" style="justify-content: center;">
+        <a href="{{ url_for('productos') }}" class="btn btn-primary">Gestionar Productos</a>
+        <a href="{{ url_for('ventas') }}" class="btn btn-primary" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Registrar Ventas</a>
+    </div>
+</div>
+
+<div class="d-flex gap-4" style="margin-top: 3rem;">
+    <div class="card" style="flex: 1; text-align: center;">
+        <h3 class="card-title" style="margin-bottom: 0.5rem;">Total Productos</h3>
+        <p style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">245</p>
+    </div>
+    <div class="card" style="flex: 1; text-align: center;">
+        <h3 class="card-title" style="margin-bottom: 0.5rem;">Ventas del Día</h3>
+        <p style="font-size: 2.5rem; font-weight: 700; color: var(--success);">12</p>
+    </div>
+    <div class="card" style="flex: 1; text-align: center;">
+        <h3 class="card-title" style="margin-bottom: 0.5rem;">Ingresos Hoy</h3>
+        <p style="font-size: 2.5rem; font-weight: 700; color: #ec4899;">$1,240</p>
+    </div>
+</div>
+{% endblock %}
